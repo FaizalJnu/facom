@@ -140,6 +140,7 @@ The API provides the following endpoints:
 ### 5. Delete a User
 - **Method**: DELETE
 - **URL**: `http://localhost:5000/users/{id}` (Replace `{id}` with an actual user ID)
+- **URL**: `http://localhost:5000/users/email/<email>` (Replace <email> with actual email)
 - **Expected Response**: Success message with 200 status code
 
 ### 6. Check API Health
@@ -201,3 +202,14 @@ docker exec -it flask-mongodb-api_mongodb_1 mongosh
 use user_db
 db.users.find()  # List all users
 ```
+
+### For future work I am thinking of adding the following:
+1. Real-time updates with WebSockets - Implementing Socket.IO to provide real-time data synchronization across clients without requiring page refreshes
+2. Comprehensive API documentation - Adding Swagger/OpenAPI integration with Flask-RESTPlus or Flask-RESTX for interactive, self-documenting APIs
+3. Advanced authentication - Implementing JWT with refresh tokens, role-based access control, and 2FA using tools like Flask-JWT-Extended
+4. Asynchronous task processing - Adding Celery with Redis/RabbitMQ for handling long-running operations without blocking the main application
+5. Caching layer - Implementing Redis caching for frequently accessed data to improve performance
+6. Comprehensive logging and monitoring - Adding ELK stack (Elasticsearch, Logstash, Kibana) or Prometheus/Grafana for monitoring system health and performance
+7. CI/CD pipeline - Setting up GitHub Actions or GitLab CI for automated testing, linting, and deployment
+8. GraphQL API - Implementing a GraphQL endpoint alongside this REST API using Ariadne or Graphene
+9. Feature flags - Adding a system to gradually roll out features to specific user segments
